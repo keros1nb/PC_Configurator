@@ -1,0 +1,15 @@
+C:\Users\Marsel\source\repos\Computer\Computer\bin\Debug\Computer.exe.config
+C:\Users\Marsel\source\repos\Computer\Computer\bin\Debug\Computer.exe
+C:\Users\Marsel\source\repos\Computer\Computer\bin\Debug\Computer.pdb
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.AssemblyReference.cache
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level1.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.MainForm.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Properties.Resources.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.GenerateResource.cache
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.CoreCompileInputs.cache
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.exe
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.pdb
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level2.resources
+C:\Users\Marsel\source\repos\Computer\Computer\bin\Debug\MySql.Data.dll
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.CopyComplete
