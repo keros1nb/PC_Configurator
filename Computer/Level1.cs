@@ -12,37 +12,56 @@ namespace Computer
 {
     public partial class Level1 : Form
     {
-       public static string model;
-        public Level1(string NameComponent)
+       
+        public Level1(string Id_Name)
         {
             InitializeComponent();
 
-            if (NameComponent == "Computer")
-            {
-                Text = "Системные блоки";
-                label1.Text = "Системные блоки";
-                pictureBox1.Load("../../Pictures/Computer.png");
-            }
+            List<string> lvl1 = SQLClass.Select("SELECT ID, Id_Name, Name, Image, Features, Quantity, Price FROM level1 WHERE Id_Name = '" + Id_Name + "'");
 
-            if (NameComponent == "Monitor")
-            {
-                Text = "Мониторы";
-                label1.Text = "Мониторы";
-                pictureBox1.Load("../../Pictures/Monitor.png");
-            }
 
-            if (NameComponent == "Keyboard")
+                Text = lvl1[2];
+                label1.Text = lvl1[2];
+            try
             {
-                Text = "Клавиатуры";
-                label1.Text = "Клавиатуры";
-                pictureBox1.Load("../../Pictures/Keyboard.png");
+                pictureBox1.Load("../../Pictures/" + lvl1[3]);
             }
+            catch (Exception) { };
 
-            if (NameComponent == "Mouse")
+            Level1Panel.Controls.Clear();
+          
+
+            int x = 40;
+            for (int i = 0; i < lvl1.Count; i += 7)
             {
-                Text = "Мыши";
-                label1.Text = "Мыши";
-                pictureBox1.Load("../../Pictures/Mouse.png");
+
+                PictureBox pb = new PictureBox();
+                pb = new PictureBox();
+                try
+                {
+                    pb.Load("../../Pictures/" + lvl1[i + 3]);
+                }
+                catch (Exception) { }
+                pb.Location = new Point(x, 50);
+                pb.Size = new Size(100, 100);
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pb.Tag = lvl1[i];
+                pb.Click += new EventHandler(pictureBox1_Click);
+                Level1Panel.Controls.Add(pb);
+
+
+                Label lbl = new Label();
+                lbl.Location = new Point(x, 160);
+                lbl.Size = new Size(200, 30);
+                lbl.Font = new Font("Microsoft Sans Serif", 12);
+                lbl.Text = lvl1[i + 2];
+                lbl.Tag = lvl1[i];
+                lbl.Click += new EventHandler(label2_Click);
+                Level1Panel.Controls.Add(lbl);
+
+
+
+                x += 210;
             }
         }
 
@@ -53,13 +72,15 @@ namespace Computer
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            PictureBox pb = (PictureBox)sender;
+            Level2 lvl2 = new Level2(pb.Tag.ToString());
+            lvl2.ShowDialog();
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            model = "Razer DeathAdder";
-            Level2 lvl2 = new Level2("model");
+            Label pb = (Label)sender;
+            Level2 lvl2 = new Level2(pb.Tag.ToString());
             lvl2.ShowDialog();
         }
     }

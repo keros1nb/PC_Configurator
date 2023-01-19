@@ -13,12 +13,16 @@ namespace Computer
     public partial class MainForm : Form
     {
         public static string NameComponent;
+
+        public static string Login = "";
+        public static string NameSurname = "";
+        public static bool isAdmin = false;
         public MainForm()
         {
             InitializeComponent();
-            List<string> Components = SQLClass.Select("SELECT Name, Image FROM main");
+            List<string> Components = SQLClass.Select("SELECT ID, Name, Image FROM main");
             CompsPanel.Controls.Clear();
-            CompsPanel.Controls.Add(label1);
+            CompsPanel.Controls.Add(label2);
 
             int x = 40;
             for (int i = 0; i < Components.Count; i += 3)
@@ -31,21 +35,21 @@ namespace Computer
                     pb.Load("../../Pictures/" + Components[i + 2]);
                 }
                 catch (Exception) { }
-                pb.Location = new Point(x, 30);
+                pb.Location = new Point(x, 50);
                 pb.Size = new Size(200, 180);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.Tag = Components[i];
-              //  pb.Click += new EventHandler(pictureBox1_Click);
+                pb.Click += new EventHandler(pictureBox_Click);
                 CompsPanel.Controls.Add(pb);
 
 
                 Label lbl = new Label();
-                lbl.Location = new Point(x, 210);
+                lbl.Location = new Point(x, 240);
                 lbl.Size = new Size(200, 30);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
-                lbl.Text = Components[i];
-                lbl.Tag = Components[i + 1];
-              // lbl.Click += new EventHandler(label4_Click);
+                lbl.Text = Components[i + 1];
+                lbl.Tag = Components[i];
+                lbl.Click += new EventHandler(label_Click);
                 CompsPanel.Controls.Add(lbl);
 
 
@@ -71,32 +75,62 @@ namespace Computer
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox_Click(object sender, EventArgs e)
         {
-            NameComponent = "Computer";
-            Level1 lvl1 = new Level1(NameComponent);
+            PictureBox pb = (PictureBox)sender;
+            Level1 lvl1 = new Level1(pb.Tag.ToString());
             lvl1.ShowDialog();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        
+        private void label_Click(object sender, EventArgs e)
         {
-            NameComponent = "Monitor";
-            Level1 lvl1 = new Level1(NameComponent);
+            Label pb = (Label)sender;
+            Level1 lvl1 = new Level1(pb.Tag.ToString());
             lvl1.ShowDialog();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            NameComponent = "Keyboard";
-            Level1 lvl1 = new Level1(NameComponent);
-            lvl1.ShowDialog();
+            if (button1.Text == "Выйти")
+            {
+                AuthPanel.Controls.Clear();
+                button1.Text = "Войти";
+                AuthPanel.Controls.Add(button1);
+            }
+            else
+            {
+                AuthorizeForm AF = new AuthorizeForm();
+                AF.ShowDialog();
+
+                AuthPanel.Controls.Clear();
+                button1.Text = "Выйти";
+                AuthPanel.Controls.Add(button1);
+                if (NameSurname != "")
+                {
+                    label5.Visible = true;
+                    AccountButton.Visible = true;
+                }
+
+                AdminButton.Visible = isAdmin;
+                label5.Text = NameSurname;
+                AuthPanel.Controls.Add(label5);
+                AuthPanel.Controls.Add(AccountButton);
+                AuthPanel.Controls.Add(AdminButton);
+            }
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void AccountButton_Click(object sender, EventArgs e)
         {
-            NameComponent = "Mouse";
-            Level1 lvl1 = new Level1(NameComponent);
-            lvl1.ShowDialog();
+            AccountForm AcF = new AccountForm();
+            AcF.ShowDialog();
+        }
+
+        private void AdminButton_Click(object sender, EventArgs e)
+        {
+            AdminForm AF = new AdminForm();
+            AF.ShowDialog();
         }
     }
-}
+    }
+

@@ -13,3 +13,6 @@ C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.pdb
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level2.resources
 C:\Users\Marsel\source\repos\Computer\Computer\bin\Debug\MySql.Data.dll
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.csproj.CopyComplete
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AccountForm.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AuthorizeForm.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.RegistrationForm.resources
