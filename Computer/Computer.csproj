@@ -66,23 +66,29 @@
     <Compile Include="AuthorizeForm.Designer.cs">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Level1.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Level1UserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Level1.Designer.cs">
-      <DependentUpon>Level1.cs</DependentUpon>
+    <Compile Include="Level1UserControl.Designer.cs">
+      <DependentUpon>Level1UserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Level2.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Level2UserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Level2.Designer.cs">
-      <DependentUpon>Level2.cs</DependentUpon>
+    <Compile Include="Level2UserControl.Designer.cs">
+      <DependentUpon>Level2UserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainUserControl.Designer.cs">
+      <DependentUpon>MainUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,14 +105,17 @@
     <EmbeddedResource Include="AuthorizeForm.resx">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Level1.resx">
-      <DependentUpon>Level1.cs</DependentUpon>
+    <EmbeddedResource Include="Level1UserControl.resx">
+      <DependentUpon>Level1UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Level2.resx">
-      <DependentUpon>Level2.cs</DependentUpon>
+    <EmbeddedResource Include="Level2UserControl.resx">
+      <DependentUpon>Level2UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainUserControl.resx">
+      <DependentUpon>MainUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,49 +21,41 @@ namespace Computer
         public MainForm()
         {
             InitializeComponent();
-            List<string> Components = SQLClass.Select("SELECT ID, Name, Image FROM main");
-            CompsPanel.Controls.Clear();
-            CompsPanel.Controls.Add(label2);
-
-            int x = 40;
-            for (int i = 0; i < Components.Count; i += 3)
-            {
-
-                PictureBox pb = new PictureBox();
-                pb = new PictureBox();
-                try
-                {
-                    pb.Load("../../Pictures/" + Components[i + 2]);
-                }
-                catch (Exception) { }
-                pb.Location = new Point(x, 50);
-                pb.Size = new Size(200, 180);
-                pb.SizeMode = PictureBoxSizeMode.Zoom;
-                pb.Tag = Components[i];
-                pb.Click += new EventHandler(pictureBox_Click);
-                CompsPanel.Controls.Add(pb);
-
-
-                Label lbl = new Label();
-                lbl.Location = new Point(x, 240);
-                lbl.Size = new Size(200, 30);
-                lbl.Font = new Font("Microsoft Sans Serif", 12);
-                lbl.Text = Components[i + 1];
-                lbl.Tag = Components[i];
-                lbl.Click += new EventHandler(label_Click);
-                CompsPanel.Controls.Add(lbl);
-
-
-
-                x += 220;
-            }
-
+           
+            MainUserControl MainUC = new MainUserControl();
+            MainUC.Dock = DockStyle.Fill;
+            ViewPanel.Controls.Clear();
+            ViewPanel.Controls.Add(MainUC);
 
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            string id_main;
+            string id_level1;
 
+            List<string> parts = SQLClass.Select("SELECT ID, Name FROM main");
+            for(int i=0; i < parts.Count; i+=2)
+            {
+                id_main = parts[i];
+                TreeNode Node0 = new TreeNode(parts[i+1]);
+                treeView1.Nodes[0].Nodes.Add(Node0);
+
+                List<string> level1 = SQLClass.Select("SELECT ID, Name FROM level1 WHERE Id_Name = '" + id_main + "'");
+                for (int j = 0; j < level1.Count; j += 2)
+                {
+                    id_level1 = level1[j];
+                    TreeNode Node1 = new TreeNode(level1[j + 1]);
+                    Node0.Nodes.Add(Node1);
+
+                    List<string> level2 = SQLClass.Select("SELECT ID, Name FROM level2 WHERE Id_Level1 = '" + id_level1 + "'");
+                    for(int g=0; g<level2.Count; g+=2)
+                    {
+                        TreeNode Node2 = new TreeNode(level2[g+1]);
+                        Node1.Nodes.Add(Node2);
+                    }
+                }
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -77,17 +70,23 @@ namespace Computer
 
         private void pictureBox_Click(object sender, EventArgs e)
         {
+
             PictureBox pb = (PictureBox)sender;
-            Level1 lvl1 = new Level1(pb.Tag.ToString());
-            lvl1.ShowDialog();
+            Level1UserControl lvl1UC = new Level1UserControl(pb.Tag.ToString());
+            lvl1UC.Dock = DockStyle.None;
+            Controls.Clear();
+            Controls.Add(lvl1UC);
         }
 
         
         private void label_Click(object sender, EventArgs e)
         {
-            Label pb = (Label)sender;
-            Level1 lvl1 = new Level1(pb.Tag.ToString());
-            lvl1.ShowDialog();
+
+            Label lbl = (Label)sender;
+            Level1UserControl lvl1UC = new Level1UserControl(lbl.Tag.ToString());
+            lvl1UC.Dock = DockStyle.None;
+            Controls.Clear();
+            Controls.Add(lvl1UC);
         }
 
         private void button1_Click(object sender, EventArgs e)
