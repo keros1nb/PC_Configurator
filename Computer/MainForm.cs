@@ -39,6 +39,7 @@ namespace Computer
             {
                 id_main = parts[i];
                 TreeNode Node0 = new TreeNode(parts[i+1]);
+                Node0.Tag = parts[i];
                 treeView1.Nodes[0].Nodes.Add(Node0);
 
                 List<string> level1 = SQLClass.Select("SELECT ID, Name FROM level1 WHERE Id_Name = '" + id_main + "'");
@@ -46,6 +47,7 @@ namespace Computer
                 {
                     id_level1 = level1[j];
                     TreeNode Node1 = new TreeNode(level1[j + 1]);
+                    Node1.Tag = parts[j];
                     Node0.Nodes.Add(Node1);
 
                     List<string> level2 = SQLClass.Select("SELECT ID, Name FROM level2 WHERE Id_Level1 = '" + id_level1 + "'");
@@ -127,8 +129,40 @@ namespace Computer
 
         private void AdminButton_Click(object sender, EventArgs e)
         {
-            AdminForm AF = new AdminForm();
-            AF.ShowDialog();
+            AdminUserControl AdminUC = new AdminUserControl();
+            ViewPanel.Controls.Clear();
+            ViewPanel.Controls.Add(AdminUC);
+            AdminUC.Dock = DockStyle.None;
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Level == 0) 
+            {
+                MainUserControl MainUC = new MainUserControl();
+                MainUC.Dock = DockStyle.Fill;
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(MainUC);
+            }
+            
+           else if (e.Node.Level == 1) 
+            {
+                Level1UserControl lvl1UC = new Level1UserControl(e.Node.ToString());
+                lvl1UC.Dock = DockStyle.None;
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(lvl1UC);
+
+            }
+
+
+            else if (e.Node.Level == 2)
+            {
+                Level2UserControl lvl2UC = new Level2UserControl(e.Node.ToString());
+                lvl2UC.Dock = DockStyle.None;
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(lvl2UC);
+
+            }
         }
     }
     }

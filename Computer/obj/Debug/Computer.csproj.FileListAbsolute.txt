@@ -17,3 +17,5 @@ C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.RegistrationFo
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.MainUserControl.resources
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level1UserControl.resources
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level2UserControl.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AdminUserControl.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AdminUSERSControl.resources

@@ -16,13 +16,14 @@ namespace Computer
         {
             InitializeComponent();
             List<string> lvl1 = SQLClass.Select("SELECT ID, Id_Name, Name, Image, Features, Quantity, Price FROM level1 WHERE Id_Name = '" + Id_Name + "'");
+            List<string> Components = SQLClass.Select("SELECT Name, Image FROM main WHERE ID = '" + Id_Name +"'");
 
 
-            Text = lvl1[2];
-            label1.Text = lvl1[2];
             try
             {
-                pictureBox1.Load("../../Pictures/" + lvl1[3]);
+                Text = Components[0];
+                label1.Text = Components[0];
+                pictureBox1.Load("../../Pictures/" + Components[1]);
             }
             catch (Exception) { };
 

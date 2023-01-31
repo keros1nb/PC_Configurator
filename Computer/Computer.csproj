@@ -54,11 +54,17 @@
     <Compile Include="AccountForm.Designer.cs">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="AdminUserControl.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="AdminUserControl.Designer.cs">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUSERSControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminUSERSControl.Designer.cs">
+      <DependentUpon>AdminUSERSControl.cs</DependentUpon>
     </Compile>
     <Compile Include="AuthorizeForm.cs">
       <SubType>Form</SubType>
@@ -101,6 +107,12 @@
     <Compile Include="SQLClass.cs" />
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUserControl.resx">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUSERSControl.resx">
+      <DependentUpon>AdminUSERSControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorizeForm.resx">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
