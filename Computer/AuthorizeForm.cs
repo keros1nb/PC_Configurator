@@ -42,5 +42,10 @@ namespace Computer
             RegistrationForm RF = new RegistrationForm();
             RF.Show();
         }
+
+        private void AuthorizeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

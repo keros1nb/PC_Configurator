@@ -21,7 +21,7 @@ namespace Computer
         public MainForm()
         {
             InitializeComponent();
-           
+
             MainUserControl MainUC = new MainUserControl();
             MainUC.Dock = DockStyle.Fill;
             ViewPanel.Controls.Clear();
@@ -35,10 +35,10 @@ namespace Computer
             string id_level1;
 
             List<string> parts = SQLClass.Select("SELECT ID, Name FROM main");
-            for(int i=0; i < parts.Count; i+=2)
+            for (int i = 0; i < parts.Count; i += 2)
             {
                 id_main = parts[i];
-                TreeNode Node0 = new TreeNode(parts[i+1]);
+                TreeNode Node0 = new TreeNode(parts[i + 1]);
                 Node0.Tag = parts[i];
                 treeView1.Nodes[0].Nodes.Add(Node0);
 
@@ -51,9 +51,9 @@ namespace Computer
                     Node0.Nodes.Add(Node1);
 
                     List<string> level2 = SQLClass.Select("SELECT ID, Name FROM level2 WHERE Id_Level1 = '" + id_level1 + "'");
-                    for(int g=0; g<level2.Count; g+=2)
+                    for (int g = 0; g < level2.Count; g += 2)
                     {
-                        TreeNode Node2 = new TreeNode(level2[g+1]);
+                        TreeNode Node2 = new TreeNode(level2[g + 1]);
                         Node1.Nodes.Add(Node2);
                     }
                 }
@@ -80,7 +80,7 @@ namespace Computer
             Controls.Add(lvl1UC);
         }
 
-        
+
         private void label_Click(object sender, EventArgs e)
         {
 
@@ -95,9 +95,17 @@ namespace Computer
         {
             if (button1.Text == "Выйти")
             {
-                AuthPanel.Controls.Clear();
+                Login = "";
                 button1.Text = "Войти";
+                isAdmin = false;
+                AdminButton.Visible = false;
+
+                AuthPanel.Controls.Clear();
                 AuthPanel.Controls.Add(button1);
+
+
+
+
             }
             else
             {
@@ -137,33 +145,68 @@ namespace Computer
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if(e.Node.Level == 0) 
+            if (e.Node.Level == 0 && e.Node.Text == "Комплектующие")
             {
                 MainUserControl MainUC = new MainUserControl();
                 MainUC.Dock = DockStyle.Fill;
                 ViewPanel.Controls.Clear();
                 ViewPanel.Controls.Add(MainUC);
             }
-            
-           else if (e.Node.Level == 1) 
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Комплектующие")
             {
-                Level1UserControl lvl1UC = new Level1UserControl(e.Node.ToString());
+                Level1UserControl lvl1UC = new Level1UserControl(e.Node.Tag.ToString());
                 lvl1UC.Dock = DockStyle.None;
                 ViewPanel.Controls.Clear();
                 ViewPanel.Controls.Add(lvl1UC);
-
             }
 
 
-            else if (e.Node.Level == 2)
+            else if (e.Node.Level == 2 && e.Node.Parent.Parent.Text == "Комплектующие")
             {
-                Level2UserControl lvl2UC = new Level2UserControl(e.Node.ToString());
+                Level2UserControl lvl2UC = new Level2UserControl(e.Node.Tag.ToString());
                 lvl2UC.Dock = DockStyle.None;
                 ViewPanel.Controls.Clear();
                 ViewPanel.Controls.Add(lvl2UC);
 
             }
+
+            else if (e.Node.Level == 0 && e.Node.Text == "Вход админа")
+            {
+                AdminUserControl adminUserControl = new AdminUserControl();
+                adminUserControl.Dock = DockStyle.None;
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(adminUserControl);
+
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа")
+            {
+
+                AdminUSERSControl adminUSERSControl = new AdminUSERSControl();
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(adminUSERSControl);
+                adminUSERSControl.Dock = DockStyle.None;
+            }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isAdmin && treeView1.Nodes.Count == 1)
+            {
+                TreeNode node = new TreeNode("Вход админа");
+                treeView1.Nodes.Add(node);
+
+                TreeNode node1 = new TreeNode("Пользователи"); 
+                node.Nodes.Add(node1);
+            }
+            else if (!isAdmin && treeView1.Nodes.Count > 1)
+            {
+                treeView1.Nodes.RemoveAt(1);
+            }
+
         }
     }
-    }
+}
 

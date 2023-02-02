@@ -24,5 +24,21 @@ namespace Computer
             Controls.Add(AdminUSERS);
             AdminUSERS.Dock = DockStyle.None;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+          //  управление таблицей готовых комплектов
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // управление таблицей level1
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // управление таблицей level2
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.label2.Size = new System.Drawing.Size(161, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Конфигуратор ПК";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // MainUserControl
             // 
