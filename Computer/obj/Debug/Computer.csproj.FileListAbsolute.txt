@@ -19,3 +19,4 @@ C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level1UserCont
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level2UserControl.resources
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AdminUserControl.resources
 C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.AdminUSERSControl.resources
+C:\Users\Marsel\source\repos\Computer\Computer\obj\Debug\Computer.Level2UCEditor.resources

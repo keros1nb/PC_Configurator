@@ -189,6 +189,15 @@ namespace Computer
                 adminUSERSControl.Dock = DockStyle.None;
             }
 
+            else if (e.Node.Level == 2 && e.Node.Parent.Text == "Вход админа")
+            {
+
+                Level2UCEditor level2UCEditor = new Level2UCEditor();
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(level2UCEditor);
+                level2UCEditor.Dock = DockStyle.None;
+            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -200,6 +209,9 @@ namespace Computer
 
                 TreeNode node1 = new TreeNode("Пользователи"); 
                 node.Nodes.Add(node1);
+
+                TreeNode node2 = new TreeNode("Редактирование компонентов");
+                node.Nodes.Add(node2);
             }
             else if (!isAdmin && treeView1.Nodes.Count > 1)
             {

@@ -38,7 +38,10 @@ namespace Computer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // управление таблицей level2
+            Level2UCEditor LVL2UCEditor = new Level2UCEditor();
+            Controls.Clear();
+            Controls.Add(LVL2UCEditor);
+            LVL2UCEditor.Dock = DockStyle.None;
         }
     }
 }
