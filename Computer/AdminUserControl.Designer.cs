@@ -42,7 +42,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(153, 72);
             this.button4.TabIndex = 7;
-            this.button4.Text = "Управление комплектами";
+            this.button4.Text = "Редактирование комплектов";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -66,7 +66,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 72);
             this.button1.TabIndex = 8;
-            this.button1.Text = "Управление подкатегориями";
+            this.button1.Text = "Редактирование подкатегорий";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -78,7 +78,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 72);
             this.button2.TabIndex = 9;
-            this.button2.Text = "Управление компонентами";
+            this.button2.Text = "Редактирование компонентов";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -92,6 +92,7 @@
             this.Controls.Add(this.button3);
             this.Name = "AdminUserControl";
             this.Size = new System.Drawing.Size(816, 489);
+            this.Load += new System.EventHandler(this.AdminUserControl_Load);
             this.ResumeLayout(false);
 
         }

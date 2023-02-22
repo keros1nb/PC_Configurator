@@ -51,6 +51,8 @@ namespace Computer
 
                 x += 220;
             }
+
+            DesignerUserControl.ApplyChanges(this);
         }
         private void pictureBox_Click(object sender, EventArgs e)
         {
@@ -77,6 +79,11 @@ namespace Computer
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainUserControl_Load(object sender, EventArgs e)
         {
 
         }

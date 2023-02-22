@@ -28,12 +28,17 @@ namespace Computer
                 pictureBox1.Load("../../Pictures/" + lvl2[4]);
             }
             catch (Exception) { };
+            DesignerUserControl.ApplyChanges(this);
         }
 
         private void Level2UserControl_Load(object sender, EventArgs e)
         {
-
+            DesignerUserControl.ApplyChanges(this);
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

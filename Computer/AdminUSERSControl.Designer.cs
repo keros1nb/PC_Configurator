@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.FliterPanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.UsersFoundButton = new System.Windows.Forms.Button();
             this.UsersAgeTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CityComboBox = new System.Windows.Forms.ComboBox();
@@ -41,9 +41,9 @@
             // 
             // FliterPanel
             // 
+            this.FliterPanel.Controls.Add(this.label3);
             this.FliterPanel.Controls.Add(this.UsersFoundButton);
             this.FliterPanel.Controls.Add(this.UsersAgeTextBox);
-            this.FliterPanel.Controls.Add(this.label6);
             this.FliterPanel.Controls.Add(this.label2);
             this.FliterPanel.Controls.Add(this.label1);
             this.FliterPanel.Controls.Add(this.CityComboBox);
@@ -52,6 +52,16 @@
             this.FliterPanel.Name = "FliterPanel";
             this.FliterPanel.Size = new System.Drawing.Size(854, 217);
             this.FliterPanel.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(350, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 24);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Пользователи";
             // 
             // UsersFoundButton
             // 
@@ -73,17 +83,6 @@
             this.UsersAgeTextBox.Name = "UsersAgeTextBox";
             this.UsersAgeTextBox.Size = new System.Drawing.Size(183, 24);
             this.UsersAgeTextBox.TabIndex = 16;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(344, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(212, 20);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Фильтр пользователей";
             // 
             // label2
             // 
@@ -134,6 +133,7 @@
             this.Controls.Add(this.UsersPanel);
             this.Name = "AdminUSERSControl";
             this.Size = new System.Drawing.Size(888, 525);
+            this.Load += new System.EventHandler(this.AdminUSERSControl_Load);
             this.FliterPanel.ResumeLayout(false);
             this.FliterPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -145,10 +145,10 @@
         private System.Windows.Forms.Panel FliterPanel;
         private System.Windows.Forms.Button UsersFoundButton;
         private System.Windows.Forms.TextBox UsersAgeTextBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CityComboBox;
         private System.Windows.Forms.Panel UsersPanel;
+        private System.Windows.Forms.Label label3;
     }
 }

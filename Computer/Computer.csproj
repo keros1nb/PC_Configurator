@@ -72,6 +72,30 @@
     <Compile Include="AuthorizeForm.Designer.cs">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesignerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DesignerUserControl.Designer.cs">
+      <DependentUpon>DesignerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level0UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Level0UC.Designer.cs">
+      <DependentUpon>Level0UC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level0UserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Level0UserControl.Designer.cs">
+      <DependentUpon>Level0UserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level1UCEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Level1UCEditor.Designer.cs">
+      <DependentUpon>Level1UCEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Level1UserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +146,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorizeForm.resx">
       <DependentUpon>AuthorizeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DesignerUserControl.resx">
+      <DependentUpon>DesignerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level0UC.resx">
+      <DependentUpon>Level0UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level0UserControl.resx">
+      <DependentUpon>Level0UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Level1UCEditor.resx">
+      <DependentUpon>Level1UCEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Level1UserControl.resx">
       <DependentUpon>Level1UserControl.cs</DependentUpon>

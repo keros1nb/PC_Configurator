@@ -26,6 +26,8 @@ namespace Booking
             SQLClass.CONN = new MySqlConnection(SQLClass.CONNECTION_STRING);
             SQLClass.CONN.Open();
 
+            DesignerUserControl.ReadDefaultDesign();
+
             Application.Run(new MainForm());
 
             SQLClass.CONN.Close();

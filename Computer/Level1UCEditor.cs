@@ -10,18 +10,16 @@ using System.Windows.Forms;
 
 namespace Computer
 {
-    public partial class Level2UCEditor : UserControl
+    public partial class Level1UCEditor : UserControl
     {
-        public Level2UCEditor()
+        public Level1UCEditor()
         {
-            InitializeComponent();
-
-            List<string> level1_list = SQLClass.Select("SELECT ID, Id_Name, Name FROM level1");
+            InitializeComponent(); List<string> main_list = SQLClass.Select("SELECT ID, Name FROM main");
 
             comboBox1.Items.Clear();
-            for (int i = 0; i < level1_list.Count; i += 3)
+            for (int i = 0; i < main_list.Count; i += 2)
             {
-                comboBox1.Items.Add(level1_list[i] + "," + level1_list[i + 1] + "," + level1_list[i + 2]);
+                comboBox1.Items.Add(main_list[i] + "," + main_list[i + 1]);
             }
             DesignerUserControl.ApplyChanges(this);
         }
@@ -54,11 +52,11 @@ namespace Computer
         {
             string[] parts = comboBox1.Text.Split(new char[] { ',' });
 
-            SQLClass.Update("INSERT INTO level2 (Id_name, Id_Level1, Name, Image, Quantity, Price)" +
-                             "VALUES('" + parts[1] + "', '" + parts[0] + "', '" + NameTextBox.Text + "', '" + address + "', '" + QuantityTextBox + "', '" + PriceTextBox.Text + "')");
+            SQLClass.Update("INSERT INTO level1 (Id_name, Name, Image, Quantity, Price)" +
+                             "VALUES('" + parts[0] + "', '" + NameTextBox.Text + "', '" + address + "', '" + QuantityTextBox + "', '" + PriceTextBox.Text + "')");
             MessageBox.Show("Сохранено");
-            Level2UCEditor_Load(sender, e);
-            return; 
+            Level1UCEditor_Load(sender, e);
+            return;
 
         }
 
@@ -71,45 +69,38 @@ namespace Computer
             {
                 if (control.Location == new Point(50, y))
                 {
-                    SQLClass.Update("DELETE FROM level2 WHERE ID = '" + control.Tag + "'");
-                    Level2UCEditor_Load(sender, e);
+                    SQLClass.Update("DELETE FROM level1 WHERE ID = '" + control.Tag + "'");
+                    Level1UCEditor_Load(sender, e);
                     return;
                 }
             }
         }
 
-        private void Level2UCEditor_Load(object sender, EventArgs e)
+        private void Level1UCEditor_Load(object sender, EventArgs e)
         {
-            List<string> list = SQLClass.Select("SELECT ID, Id_name, Id_Level1, Name FROM level2");
+            List<string> list = SQLClass.Select("SELECT ID, Id_Name, Name FROM level1");
 
             panel1.Controls.Clear();
             int y = 30;
-            for (int i = 0; i < list.Count; i += 4)
+            for (int i = 0; i < list.Count; i += 3)
             {
                 Label lbl0 = new Label();
                 lbl0.Location = new Point(50, y);
-                lbl0.Size = new Size(170, 30);
+                lbl0.Size = new Size(50, 30);
                 lbl0.Font = new Font("Microsoft Sans Serif", 12);
-                lbl0.Text = list[i+1];
+                lbl0.Text = list[i + 1];
                 lbl0.Tag = list[i];
                 panel1.Controls.Add(lbl0);
 
                 Label lbl1 = new Label();
                 lbl1.Location = new Point(225, y);
-                lbl1.Size = new Size(50, 30);
+                lbl1.Size = new Size(200, 30);
                 lbl1.Font = new Font("Microsoft Sans Serif", 12);
                 lbl1.Text = list[i + 2];
                 panel1.Controls.Add(lbl1); ;
 
-                Label lbl2 = new Label();
-                lbl2.Location = new Point(280, y);
-                lbl2.Size = new Size(200, 30);
-                lbl2.Font = new Font("Microsoft Sans Serif", 12);
-                lbl2.Text = list[i + 3];
-                panel1.Controls.Add(lbl2); ;
-
                 Button btn = new Button();
-                btn.Location = new Point(540, y);
+                btn.Location = new Point(500, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteRoomClick);
@@ -118,9 +109,81 @@ namespace Computer
 
 
                 y += 35;
+         
             }
             DesignerUserControl.ApplyChanges(this);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void QuantityTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
 

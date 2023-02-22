@@ -10,20 +10,21 @@ using System.Windows.Forms;
 
 namespace Computer
 {
-    public partial class Level1UserControl : UserControl
+    public partial class Level0UC : UserControl
     {
-        public Level1UserControl(string Id_Level1)
+        public Level0UC(string Id_Name)
         {
             InitializeComponent();
-            List<string> lvl1 = SQLClass.Select("SELECT ID, Name, Image FROM level1 WHERE ID = '" + Id_Level1 + "'");
-            List<string> lvl2 = SQLClass.Select("SELECT ID, Name, Features, Image, Quantity, Price FROM level2 WHERE Id_Level1 = '" + Id_Level1 + "'");
+            List<string> lvl1 = SQLClass.Select("SELECT ID, Id_Name, Name, Image, Features, Quantity, Price FROM level1 WHERE Id_Name = '" + Id_Name + "'");
+            List<string> Components = SQLClass.Select("SELECT Name, Image FROM main WHERE ID = '" + Id_Name + "'");
 
-            Text = lvl1[1];
-            label1.Text = lvl1[1];
+            Text = Components[0];
+            label1.Text = Components[0];
+
             try
             {
-                
-                pictureBox1.Load("../../Pictures/" + lvl1 [2]);
+               
+                pictureBox1.Load("../../Pictures/" + Components[1]);
             }
             catch (Exception) { };
 
@@ -31,20 +32,20 @@ namespace Computer
 
 
             int x = 40;
-            for (int i = 0; i < lvl2.Count; i += 6  )
+            for (int i = 0; i < lvl1.Count; i += 7)
             {
 
                 PictureBox pb = new PictureBox();
                 pb = new PictureBox();
                 try
                 {
-                    pb.Load("../../Pictures/" + lvl2[i + 4]);
+                    pb.Load("../../Pictures/" + lvl1[i + 3]);
                 }
                 catch (Exception) { }
                 pb.Location = new Point(x, 30);
                 pb.Size = new Size(100, 100);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
-                pb.Tag = lvl2[i];
+                pb.Tag = lvl1[i];
                 pb.Click += new EventHandler(pictureBox1_Click);
                 Level1Panel.Controls.Add(pb);
 
@@ -53,8 +54,8 @@ namespace Computer
                 lbl.Location = new Point(x, 140);
                 lbl.Size = new Size(200, 30);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
-                lbl.Text = lvl2[i + 1];
-                lbl.Tag = lvl2[i];
+                lbl.Text = lvl1[i + 2];
+                lbl.Tag = lvl1[i];
                 lbl.Click += new EventHandler(label2_Click);
                 Level1Panel.Controls.Add(lbl);
 
@@ -62,6 +63,7 @@ namespace Computer
 
                 x += 210;
             }
+
             DesignerUserControl.ApplyChanges(this);
         }
 
@@ -81,23 +83,6 @@ namespace Computer
             lvl2UC.Dock = DockStyle.None;
             Controls.Clear();
             Controls.Add(lvl2UC);
-        }
-
-       
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Level1Panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void Level0Panel_Paint(object sender, PaintEventArgs e)

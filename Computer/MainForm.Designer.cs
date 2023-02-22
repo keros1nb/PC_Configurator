@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Комплектующие");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Комплектующие");
             this.AuthPanel = new System.Windows.Forms.Panel();
+            this.DesignButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.AccountButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,6 +48,7 @@
             // 
             // AuthPanel
             // 
+            this.AuthPanel.Controls.Add(this.DesignButton);
             this.AuthPanel.Controls.Add(this.label5);
             this.AuthPanel.Controls.Add(this.AccountButton);
             this.AuthPanel.Controls.Add(this.button1);
@@ -54,8 +56,21 @@
             this.AuthPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AuthPanel.Location = new System.Drawing.Point(0, 0);
             this.AuthPanel.Name = "AuthPanel";
-            this.AuthPanel.Size = new System.Drawing.Size(1446, 45);
+            this.AuthPanel.Size = new System.Drawing.Size(1464, 45);
             this.AuthPanel.TabIndex = 0;
+            // 
+            // DesignButton
+            // 
+            this.DesignButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DesignButton.Location = new System.Drawing.Point(779, 5);
+            this.DesignButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DesignButton.Name = "DesignButton";
+            this.DesignButton.Size = new System.Drawing.Size(134, 32);
+            this.DesignButton.TabIndex = 18;
+            this.DesignButton.Text = "Дизайн";
+            this.DesignButton.UseVisualStyleBackColor = true;
+            this.DesignButton.Visible = false;
+            this.DesignButton.Click += new System.EventHandler(this.DesignButton_Click);
             // 
             // label5
             // 
@@ -72,7 +87,7 @@
             // AccountButton
             // 
             this.AccountButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AccountButton.Location = new System.Drawing.Point(1135, 5);
+            this.AccountButton.Location = new System.Drawing.Point(933, 5);
             this.AccountButton.Margin = new System.Windows.Forms.Padding(2);
             this.AccountButton.Name = "AccountButton";
             this.AccountButton.Size = new System.Drawing.Size(161, 32);
@@ -97,7 +112,7 @@
             // AdminButton
             // 
             this.AdminButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AdminButton.Location = new System.Drawing.Point(1321, 8);
+            this.AdminButton.Location = new System.Drawing.Point(1110, 8);
             this.AdminButton.Margin = new System.Windows.Forms.Padding(2);
             this.AdminButton.Name = "AdminButton";
             this.AdminButton.Size = new System.Drawing.Size(105, 27);
@@ -111,10 +126,11 @@
             // 
             this.ViewPanel.Controls.Add(this.label2);
             this.ViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ViewPanel.Location = new System.Drawing.Point(311, 3);
+            this.ViewPanel.Location = new System.Drawing.Point(315, 3);
             this.ViewPanel.Name = "ViewPanel";
-            this.ViewPanel.Size = new System.Drawing.Size(1132, 534);
+            this.ViewPanel.Size = new System.Drawing.Size(1146, 534);
             this.ViewPanel.TabIndex = 1;
+            this.ViewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPanel_Paint);
             // 
             // label2
             // 
@@ -138,7 +154,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1446, 540);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1464, 540);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // treeView1
@@ -147,12 +163,12 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.BackColor = System.Drawing.Color.White;
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Комплектующие";
+            treeNode4.BackColor = System.Drawing.Color.White;
+            treeNode4.Name = "Узел0";
+            treeNode4.Text = "Комплектующие";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treeView1.Size = new System.Drawing.Size(302, 534);
+            treeNode4});
+            this.treeView1.Size = new System.Drawing.Size(306, 534);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
@@ -165,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 585);
+            this.ClientSize = new System.Drawing.Size(1464, 585);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.AuthPanel);
             this.Name = "MainForm";
@@ -192,6 +208,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button DesignButton;
     }
 }
 

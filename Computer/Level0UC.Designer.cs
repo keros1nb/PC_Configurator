@@ -1,6 +1,6 @@
 ﻿namespace Computer
 {
-    partial class Level1UserControl
+    partial class Level0UC
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -43,8 +43,8 @@
             this.Level0Panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.Level0Panel.Location = new System.Drawing.Point(0, 0);
             this.Level0Panel.Name = "Level0Panel";
-            this.Level0Panel.Size = new System.Drawing.Size(816, 167);
-            this.Level0Panel.TabIndex = 1;
+            this.Level0Panel.Size = new System.Drawing.Size(966, 167);
+            this.Level0Panel.TabIndex = 3;
             this.Level0Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Level0Panel_Paint);
             // 
             // label1
@@ -56,7 +56,6 @@
             this.label1.Size = new System.Drawing.Size(46, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -66,25 +65,25 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Level1Panel
             // 
             this.Level1Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Level1Panel.Location = new System.Drawing.Point(0, 167);
             this.Level1Panel.Name = "Level1Panel";
-            this.Level1Panel.Size = new System.Drawing.Size(816, 451);
-            this.Level1Panel.TabIndex = 2;
-            this.Level1Panel.Paint += new System.Windows.Forms.PaintEventHandler(this.Level1Panel_Paint);
+            this.Level1Panel.Size = new System.Drawing.Size(966, 451);
+            this.Level1Panel.TabIndex = 4;
             // 
-            // Level1UserControl
+            // Level0UC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Level1Panel);
             this.Controls.Add(this.Level0Panel);
-            this.Name = "Level1UserControl";
-            this.Size = new System.Drawing.Size(816, 618);
+            this.Controls.Add(this.Level1Panel);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Name = "Level0UC";
+            this.Size = new System.Drawing.Size(966, 618);
             this.Level0Panel.ResumeLayout(false);
             this.Level0Panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

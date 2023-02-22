@@ -27,6 +27,7 @@ namespace Computer
             ViewPanel.Controls.Clear();
             ViewPanel.Controls.Add(MainUC);
 
+            DesignerUserControl.ApplyChanges(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -58,7 +59,9 @@ namespace Computer
                     }
                 }
             }
+            DesignerUserControl.ApplyChanges(this);
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -99,13 +102,13 @@ namespace Computer
                 button1.Text = "Войти";
                 isAdmin = false;
                 AdminButton.Visible = false;
+                DesignButton.Visible = false;
+                
+
 
                 AuthPanel.Controls.Clear();
                 AuthPanel.Controls.Add(button1);
-
-
-
-
+                AuthPanel.Controls.Add(DesignButton);
             }
             else
             {
@@ -119,13 +122,18 @@ namespace Computer
                 {
                     label5.Visible = true;
                     AccountButton.Visible = true;
+                    DesignButton.Visible = true;
+                    
                 }
 
+
+
                 AdminButton.Visible = isAdmin;
-                label5.Text = NameSurname;
+                label5.Text = "Приветствуем, " + NameSurname;
                 AuthPanel.Controls.Add(label5);
                 AuthPanel.Controls.Add(AccountButton);
                 AuthPanel.Controls.Add(AdminButton);
+                AuthPanel.Controls.Add(DesignButton);
             }
         }
 
@@ -180,7 +188,7 @@ namespace Computer
 
             }
 
-            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа")
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа" && e.Node.Text == "Управление пользователями")
             {
 
                 AdminUSERSControl adminUSERSControl = new AdminUSERSControl();
@@ -189,13 +197,31 @@ namespace Computer
                 adminUSERSControl.Dock = DockStyle.None;
             }
 
-            else if (e.Node.Level == 2 && e.Node.Parent.Text == "Вход админа")
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа" && e.Node.Text == "Редактирование компонентов")
             {
 
                 Level2UCEditor level2UCEditor = new Level2UCEditor();
                 ViewPanel.Controls.Clear();
                 ViewPanel.Controls.Add(level2UCEditor);
                 level2UCEditor.Dock = DockStyle.None;
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа" && e.Node.Text == "Редактирование подкатегорий")
+            {
+
+                Level1UCEditor level1UCEditor = new Level1UCEditor();
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(level1UCEditor);
+                level1UCEditor.Dock = DockStyle.None;
+            }
+
+            else if (e.Node.Level == 1 && e.Node.Parent.Text == "Вход админа" && e.Node.Text == "Редактирование комплектов")
+            {
+
+                Level0UserControl LVL0 = new Level0UserControl();
+                ViewPanel.Controls.Clear();
+                ViewPanel.Controls.Add(LVL0);
+                LVL0.Dock = DockStyle.None;
             }
 
         }
@@ -207,17 +233,38 @@ namespace Computer
                 TreeNode node = new TreeNode("Вход админа");
                 treeView1.Nodes.Add(node);
 
-                TreeNode node1 = new TreeNode("Пользователи"); 
+                TreeNode node1 = new TreeNode("Управление пользователями"); 
                 node.Nodes.Add(node1);
 
                 TreeNode node2 = new TreeNode("Редактирование компонентов");
                 node.Nodes.Add(node2);
+
+                TreeNode node3 = new TreeNode("Редактирование подкатегорий");
+                node.Nodes.Add(node3);
+
+                TreeNode node4 = new TreeNode("Редактирование комплектов");
+                node.Nodes.Add(node4);
             }
             else if (!isAdmin && treeView1.Nodes.Count > 1)
             {
                 treeView1.Nodes.RemoveAt(1);
             }
 
+        }
+
+        private void ViewPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void DesignButton_Click(object sender, EventArgs e)
+        {
+            DesignerUserControl DUC = new DesignerUserControl();
+            ViewPanel.Controls.Clear();
+            ViewPanel.Controls.Add(DUC);
+            DUC.Dock = DockStyle.None;
+
+            DesignerUserControl.ApplyChanges(this);
         }
     }
 }

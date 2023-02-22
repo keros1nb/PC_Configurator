@@ -33,6 +33,8 @@ namespace Computer
             LoginTextBox.Text = user_data[4];
             PasswordTextBox.Text = user_data[5];
             EmailTextBox.Text = user_data[6];
+
+            DesignerUserControl.ApplyChanges(this);
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -63,7 +65,7 @@ namespace Computer
 
         private void AccountForm_Load(object sender, EventArgs e)
         {
-
+            DesignerUserControl.ApplyChanges(this);
         }
     }
 }

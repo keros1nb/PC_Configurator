@@ -15,6 +15,7 @@ namespace Computer
         public AuthorizeForm()
         {
             InitializeComponent();
+            DesignerUserControl.ApplyChanges(this);
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace Computer
 
         private void AuthorizeForm_Load(object sender, EventArgs e)
         {
-
+            DesignerUserControl.ApplyChanges(this);
         }
     }
 }

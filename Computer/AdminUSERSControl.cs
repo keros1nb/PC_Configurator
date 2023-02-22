@@ -21,6 +21,8 @@ namespace Computer
             CityComboBox.Items.Add("");
             foreach (string city in cities)
                 CityComboBox.Items.Add(city);
+
+            DesignerUserControl.ApplyChanges(this);
         }
 
 
@@ -72,6 +74,11 @@ namespace Computer
 
                 y += 35;
             }
+        }
+
+        private void AdminUSERSControl_Load(object sender, EventArgs e)
+        {
+            DesignerUserControl.ApplyChanges(this);
         }
     }
 }
