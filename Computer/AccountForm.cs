@@ -35,6 +35,7 @@ namespace Computer
             EmailTextBox.Text = user_data[6];
 
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void NameTextBox_TextChanged(object sender, EventArgs e)
@@ -66,6 +67,8 @@ namespace Computer
         private void AccountForm_Load(object sender, EventArgs e)
         {
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
+
         }
     }
 }

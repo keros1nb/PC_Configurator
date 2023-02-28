@@ -17,6 +17,7 @@ namespace Computer
         {
             InitializeComponent();
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
 
         }
         string address = "";
@@ -75,6 +76,7 @@ namespace Computer
         private void Level0UserControl_Load(object sender, EventArgs e)
         {
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
     }
 

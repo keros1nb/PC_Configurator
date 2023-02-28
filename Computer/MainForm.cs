@@ -18,6 +18,9 @@ namespace Computer
         public static string Login = "";
         public static string NameSurname = "";
         public static bool isAdmin = false;
+
+        
+
         public MainForm()
         {
             InitializeComponent();
@@ -28,12 +31,15 @@ namespace Computer
             ViewPanel.Controls.Add(MainUC);
 
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             string id_main;
             string id_level1;
+
+            DesignerUserControl.Button_ContextMenu = contextMenuStrip1;
 
             List<string> parts = SQLClass.Select("SELECT ID, Name FROM main");
             for (int i = 0; i < parts.Count; i += 2)
@@ -60,6 +66,7 @@ namespace Computer
                 }
             }
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
 
@@ -103,7 +110,9 @@ namespace Computer
                 isAdmin = false;
                 AdminButton.Visible = false;
                 DesignButton.Visible = false;
-                
+                DesignerUserControl.ApplyMenu(this);
+                DesignerUserControl.ApplyChanges(this);
+
 
 
                 AuthPanel.Controls.Clear();
@@ -134,6 +143,9 @@ namespace Computer
                 AuthPanel.Controls.Add(AccountButton);
                 AuthPanel.Controls.Add(AdminButton);
                 AuthPanel.Controls.Add(DesignButton);
+                DesignerUserControl.ApplyMenu(this);
+                DesignerUserControl.ApplyChanges(this);
+
             }
         }
 
@@ -265,6 +277,24 @@ namespace Computer
             DUC.Dock = DockStyle.None;
 
             DesignerUserControl.ApplyChanges(this);
+        }
+
+       
+
+      
+
+        private void уникальныйДизайнКнопкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                ContextMenuStrip CMS = (ContextMenuStrip)(item.GetCurrentParent());
+                Button button = (Button)(CMS.SourceControl);
+                UniqueFormDesign UFD = new UniqueFormDesign(button);
+                UFD.ShowDialog();
+            }
+            catch (Exception ex) { }
         }
     }
 }

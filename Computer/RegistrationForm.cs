@@ -15,6 +15,8 @@ namespace Computer
         public RegistrationForm()
         {
             InitializeComponent();
+            DesignerUserControl.ApplyMenu(this);
+            DesignerUserControl.ApplyChanges(this);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,6 +26,12 @@ namespace Computer
 
             MessageBox.Show("Сохранено");
             Close();
+        }
+
+        private void RegistrationForm_Load(object sender, EventArgs e)
+        {
+            DesignerUserControl.ApplyMenu(this);
+            DesignerUserControl.ApplyChanges(this);
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Computer
                 comboBox1.Items.Add(main_list[i] + "," + main_list[i + 1]);
             }
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -112,6 +113,7 @@ namespace Computer
          
             }
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

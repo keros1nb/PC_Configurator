@@ -15,6 +15,7 @@ namespace Computer
         public AuthorizeForm()
         {
             InitializeComponent();
+            DesignerUserControl.ApplyMenu(this);
             DesignerUserControl.ApplyChanges(this);
         }
 
@@ -46,6 +47,7 @@ namespace Computer
 
         private void AuthorizeForm_Load(object sender, EventArgs e)
         {
+            DesignerUserControl.ApplyMenu(this);
             DesignerUserControl.ApplyChanges(this);
         }
     }

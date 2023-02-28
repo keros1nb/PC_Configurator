@@ -16,6 +16,7 @@ namespace Computer
         {
             InitializeComponent();
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace Computer
         private void AdminUserControl_Load(object sender, EventArgs e)
         {
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
     }
 }

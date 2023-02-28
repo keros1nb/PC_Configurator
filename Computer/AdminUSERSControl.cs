@@ -23,6 +23,7 @@ namespace Computer
                 CityComboBox.Items.Add(city);
 
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
 
@@ -79,6 +80,7 @@ namespace Computer
         private void AdminUSERSControl_Load(object sender, EventArgs e)
         {
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
     }
 }

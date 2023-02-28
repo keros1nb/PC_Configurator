@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -13,6 +16,7 @@ namespace Computer
 {
     public partial class DesignerUserControl : UserControl
     {
+        public static ContextMenuStrip Button_ContextMenu;
 
         #region textbox
         public static Font Textbox_Font;
@@ -34,6 +38,7 @@ namespace Computer
         public static Color Panel_Color;
         #endregion
 
+       
         public DesignerUserControl()
         {
             InitializeComponent();
@@ -129,6 +134,8 @@ namespace Computer
             #endregion
         }
 
+
+
         public static void ApplyChanges(Control Form)
         {
             foreach (Control ctrl in Form.Controls)
@@ -175,6 +182,23 @@ namespace Computer
             }
         }
 
+        public static void ApplyMenu(Control Form)
+        {
+            foreach (Control ctrl in Form.Controls)
+            {
+                
+                if (ctrl is Button && MainForm.isAdmin)
+                {
+                    ctrl.ContextMenuStrip  = Button_ContextMenu;
+                   
+                }
+                else
+                {
+                    ApplyMenu(ctrl);
+                }
+
+            }
+        }
 
 
         //шрифт текст бокса и его цвет
@@ -282,7 +306,65 @@ namespace Computer
 
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonObrazec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

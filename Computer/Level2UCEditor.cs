@@ -24,6 +24,7 @@ namespace Computer
                 comboBox1.Items.Add(level1_list[i] + "," + level1_list[i + 1] + "," + level1_list[i + 2]);
             }
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -120,6 +121,7 @@ namespace Computer
                 y += 35;
             }
             DesignerUserControl.ApplyChanges(this);
+            DesignerUserControl.ApplyMenu(this);
         }
     }
 }
