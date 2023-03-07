@@ -82,6 +82,7 @@ namespace Computer
 
             }
             catch (Exception) { }
+
             #endregion
 
             #region Panel Reading
@@ -134,6 +135,52 @@ namespace Computer
             #endregion
         }
 
+        public static void ReadUniqueDesignButton(Button btn)
+        {
+            #region Buttons Reading
+           //чтение цвета кнопки
+            try
+            {
+                string color = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'COLOR'")[0];
+                btn.BackColor = Color.FromArgb(Convert.ToInt32(color));
+            }
+            catch (Exception) { }
+
+          //чтение цвета шрифта и шрифта кнопки
+            try
+            {
+                string color = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'Font_Color'")[0];
+                btn.ForeColor = Color.FromArgb(Convert.ToInt32(color));
+
+                string font = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name +  "' AND Parameter = 'Font'")[0];
+                string[] parts = font.Split(new char[] { ';' });
+                btn.Font = new Font(new FontFamily(parts[0]), (float)Convert.ToDouble(parts[1]));
+
+            }   
+            catch (Exception) { }
+
+            //Чтение координат кнопки
+            try
+            {
+                string Location = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'LOCATION'")[0];
+                string[] parts = Location.Split(new char[] { ',' });
+                btn.Location = new Point(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
+            }
+            catch (Exception) { }
+
+            //чтение размера кнопки
+            try
+            {
+                string Size = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'SIZE'")[0];
+                string[] parts = Size.Split(new char[] { ',' });
+                btn.Size = new Size(Convert.ToInt32(parts[0]), Convert.ToInt32(parts[1]));
+            }
+            catch (Exception) { }
+
+
+            #endregion
+        }
+
 
 
         public static void ApplyChanges(Control Form)
@@ -155,6 +202,7 @@ namespace Computer
                     ctrl.Font = Button_Font;
                     ctrl.ForeColor = Button_Font_Color;
                     ctrl.BackColor = Button_Color;
+                    ReadUniqueDesignButton(ctrl as Button);
                 }
                 else
                 {

@@ -146,6 +146,7 @@ namespace Computer
                 DesignerUserControl.ApplyMenu(this);
                 DesignerUserControl.ApplyChanges(this);
 
+
             }
         }
 
@@ -276,7 +277,8 @@ namespace Computer
             ViewPanel.Controls.Add(DUC);
             DUC.Dock = DockStyle.None;
 
-            DesignerUserControl.ApplyChanges(this);
+           // DesignerUserControl.ApplyChanges(this);
+
         }
 
        
