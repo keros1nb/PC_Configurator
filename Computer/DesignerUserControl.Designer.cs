@@ -64,7 +64,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(966, 618);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+
             // 
             // tabPage1
             // 
@@ -78,7 +78,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Дизайн TextBox ";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+
             // 
             // textBox1
             // 
@@ -87,7 +87,7 @@
             this.textBox1.Size = new System.Drawing.Size(148, 26);
             this.textBox1.TabIndex = 5;
             this.textBox1.Text = "Образец";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // label1
             // 
@@ -97,7 +97,7 @@
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Образец";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
             // 
             // ButtonTextBoxFont
             // 
@@ -121,7 +121,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Дизайн Button";
             this.tabPage2.UseVisualStyleBackColor = true;
-            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+
             // 
             // ButtonColorButton
             // 
@@ -151,7 +151,7 @@
             this.buttonObrazec.TabIndex = 3;
             this.buttonObrazec.Text = "Образец";
             this.buttonObrazec.UseVisualStyleBackColor = true;
-            this.buttonObrazec.Click += new System.EventHandler(this.buttonObrazec_Click);
+
             // 
             // tabPage3
             // 
@@ -165,7 +165,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = " Дизайн Panel";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
+
             // 
             // button1
             // 
@@ -175,7 +175,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Задний фон";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // panel1
             // 
@@ -183,7 +183,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(277, 270);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+
             // 
             // ButtonPanelColor
             // 
@@ -205,7 +205,7 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Дизайн Label";
             this.tabPage4.UseVisualStyleBackColor = true;
-            this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+
             // 
             // LabelFontButton
             // 
@@ -225,12 +225,12 @@
             this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "label3";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+
             // 
             // fontDialog1
             // 
             this.fontDialog1.ShowColor = true;
-            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
+
             // 
             // DesignerUserControl
             // 

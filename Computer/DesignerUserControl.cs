@@ -17,6 +17,7 @@ namespace Computer
     public partial class DesignerUserControl : UserControl
     {
         public static ContextMenuStrip Button_ContextMenu;
+        public static ContextMenuStrip Label_ContextMenu;
 
         #region textbox
         public static Font Textbox_Font;
@@ -177,6 +178,13 @@ namespace Computer
             }
             catch (Exception) { }
 
+            //чтение доступности к админке
+            try
+            {
+                string admin = SQLClass.Select("SELECT Value FROM uniqueform WHERE Type = 'System.Windows.Forms.Button' AND Name = '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'ADMIN'")[0];
+                btn.AccessibleDescription = admin;
+            }
+            catch (Exception) { }
 
             #endregion
         }
@@ -203,6 +211,11 @@ namespace Computer
                     ctrl.ForeColor = Button_Font_Color;
                     ctrl.BackColor = Button_Color;
                     ReadUniqueDesignButton(ctrl as Button);
+
+                    if(!MainForm.isAdmin && ctrl.AccessibleDescription == "1")
+                    {
+                        ctrl.Visible = false;
+                    }
                 }
                 else
                 {
@@ -245,6 +258,15 @@ namespace Computer
                     ApplyMenu(ctrl);
                 }
 
+                if (ctrl is Label && MainForm.isAdmin)
+                {
+                    ctrl.ContextMenuStrip = Label_ContextMenu;
+
+                }
+                else
+                {
+                    ApplyMenu(ctrl);
+                }
             }
         }
 
@@ -354,65 +376,7 @@ namespace Computer
 
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonObrazec_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
 

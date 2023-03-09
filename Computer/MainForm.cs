@@ -40,6 +40,7 @@ namespace Computer
             string id_level1;
 
             DesignerUserControl.Button_ContextMenu = contextMenuStrip1;
+            DesignerUserControl.Label_ContextMenu = contextMenuStrip2;
 
             List<string> parts = SQLClass.Select("SELECT ID, Name FROM main");
             for (int i = 0; i < parts.Count; i += 2)
@@ -298,6 +299,8 @@ namespace Computer
             }
             catch (Exception ex) { }
         }
+
+        
     }
 }
 

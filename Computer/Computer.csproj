@@ -141,6 +141,12 @@
     <Compile Include="UniqueFormDesign.Designer.cs">
       <DependentUpon>UniqueFormDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="UniqueLabelDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UniqueLabelDesign.Designer.cs">
+      <DependentUpon>UniqueLabelDesign.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccountForm.resx">
       <DependentUpon>AccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UniqueFormDesign.resx">
       <DependentUpon>UniqueFormDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UniqueLabelDesign.resx">
+      <DependentUpon>UniqueLabelDesign.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Комплектующие");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Комплектующие");
             this.AuthPanel = new System.Windows.Forms.Panel();
             this.DesignButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,10 +43,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.уникальныйДизайнКнопкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.уникальныйДизайнНадписиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AuthPanel.SuspendLayout();
             this.ViewPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuthPanel
@@ -166,11 +169,11 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            treeNode1.BackColor = System.Drawing.Color.White;
-            treeNode1.Name = "Узел0";
-            treeNode1.Text = "Комплектующие";
+            treeNode2.BackColor = System.Drawing.Color.White;
+            treeNode2.Name = "Узел0";
+            treeNode2.Text = "Комплектующие";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treeView1.Size = new System.Drawing.Size(306, 534);
             this.treeView1.TabIndex = 2;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -186,7 +189,6 @@
             this.уникальныйДизайнКнопкиToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(228, 48);
-
             // 
             // уникальныйДизайнКнопкиToolStripMenuItem
             // 
@@ -194,6 +196,19 @@
             this.уникальныйДизайнКнопкиToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.уникальныйДизайнКнопкиToolStripMenuItem.Text = "Уникальный дизайн кнопки";
             this.уникальныйДизайнКнопкиToolStripMenuItem.Click += new System.EventHandler(this.уникальныйДизайнКнопкиToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.уникальныйДизайнНадписиToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(234, 26);
+            // 
+            // уникальныйДизайнНадписиToolStripMenuItem
+            // 
+            this.уникальныйДизайнНадписиToolStripMenuItem.Name = "уникальныйДизайнНадписиToolStripMenuItem";
+            this.уникальныйДизайнНадписиToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.уникальныйДизайнНадписиToolStripMenuItem.Text = "Уникальный дизайн надписи";
             // 
             // MainForm
             // 
@@ -211,6 +226,7 @@
             this.ViewPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -230,6 +246,8 @@
         private System.Windows.Forms.Button DesignButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem уникальныйДизайнКнопкиToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem уникальныйДизайнНадписиToolStripMenuItem;
     }
 }
 

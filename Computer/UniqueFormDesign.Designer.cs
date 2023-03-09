@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Button_Size = new System.Windows.Forms.TextBox();
             this.SaveCoordsAndSizeButton = new System.Windows.Forms.Button();
+            this.ButtonCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ButtonColorButton
@@ -109,7 +110,7 @@
             // 
             // SaveCoordsAndSizeButton
             // 
-            this.SaveCoordsAndSizeButton.Location = new System.Drawing.Point(16, 292);
+            this.SaveCoordsAndSizeButton.Location = new System.Drawing.Point(16, 325);
             this.SaveCoordsAndSizeButton.Name = "SaveCoordsAndSizeButton";
             this.SaveCoordsAndSizeButton.Size = new System.Drawing.Size(255, 34);
             this.SaveCoordsAndSizeButton.TabIndex = 13;
@@ -117,11 +118,23 @@
             this.SaveCoordsAndSizeButton.UseVisualStyleBackColor = true;
             this.SaveCoordsAndSizeButton.Click += new System.EventHandler(this.SaveCoordsAndSizeButton_Click);
             // 
+            // ButtonCheckBox
+            // 
+            this.ButtonCheckBox.AutoSize = true;
+            this.ButtonCheckBox.Location = new System.Drawing.Point(16, 295);
+            this.ButtonCheckBox.Name = "ButtonCheckBox";
+            this.ButtonCheckBox.Size = new System.Drawing.Size(178, 24);
+            this.ButtonCheckBox.TabIndex = 14;
+            this.ButtonCheckBox.Text = "Только для админа";
+            this.ButtonCheckBox.UseVisualStyleBackColor = true;
+            this.ButtonCheckBox.CheckedChanged += new System.EventHandler(this.ButtonCheckBox_CheckedChanged);
+            // 
             // UniqueFormDesign
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 336);
+            this.ClientSize = new System.Drawing.Size(301, 370);
+            this.Controls.Add(this.ButtonCheckBox);
             this.Controls.Add(this.SaveCoordsAndSizeButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Button_Size);
@@ -152,5 +165,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Button_Size;
         private System.Windows.Forms.Button SaveCoordsAndSizeButton;
+        private System.Windows.Forms.CheckBox ButtonCheckBox;
     }
 }

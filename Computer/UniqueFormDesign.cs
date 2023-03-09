@@ -28,6 +28,7 @@ namespace Computer
 
             Button_Coordinates.Text = btn.Location.X.ToString() + ", " + btn.Location.Y.ToString();
             Button_Size.Text = btn.Size.Width.ToString() + ", " + btn.Size.Height.ToString();
+            ButtonCheckBox.Checked = Convert.ToBoolean(Convert.ToInt32(btn.AccessibleDescription));
 
         }
 
@@ -85,6 +86,13 @@ namespace Computer
 
             SQLClass.Update("INSERT INTO uniqueform (Type, Name, Form, Parameter, Value) VALUES ('" + buttonObrazec.GetType() + "', '" + btn.Name + "', '" + btn.FindForm().Name + "', 'LOCATION', '" + Button_Coordinates.Text + "')");
             SQLClass.Update("INSERT INTO uniqueform (Type, Name, Form, Parameter, Value) VALUES ('" + buttonObrazec.GetType() + "', '" + btn.Name + "', '" + btn.FindForm().Name + "',   'SIZE',   '" + Button_Size.Text + "')");
+        }
+
+        private void ButtonCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            SQLClass.Update("DELETE FROM uniqueform WHERE Type  = '" + buttonObrazec.GetType() + "' AND Name =  '" + btn.Name + "' AND Form = '" + btn.FindForm().Name + "' AND Parameter = 'ADMIN'");
+            SQLClass.Update("INSERT INTO uniqueform (Type, Name, Form, Parameter, Value) VALUES ('" + buttonObrazec.GetType() + "', '" + btn.Name + "', '" + btn.FindForm().Name + "', 'ADMIN', '" + ((ButtonCheckBox.Checked) ? "1" : "0") + "')");
+
         }
     }
 }
